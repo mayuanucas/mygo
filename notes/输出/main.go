@@ -96,6 +96,25 @@ Pointer
 
   */
 func main() {
+	learnScan()
+}
+
+func learnScan(){
+	fmt.Println("请输入内容:")
+
+	var n int
+	fmt.Scanln(&n)
+
+	numbers := make([]int, n)
+	for i:=0; i<n; i++ {
+		fmt.Scan(&numbers[i])
+	}
+
+	fmt.Println(n)
+	fmt.Println(numbers)
+}
+
+func learnPrintf(){
 	fmt.Printf("%05d\n", 1)
 	fmt.Printf("|%5d|\n", 1234567)
 	fmt.Printf("%-5d\n", 1)
@@ -111,5 +130,4 @@ func main() {
 	fmt.Printf("%#q\n", "test\"")
 	fmt.Printf("%t\n", true)
 	fmt.Printf("%v\n", false)
-
 }
