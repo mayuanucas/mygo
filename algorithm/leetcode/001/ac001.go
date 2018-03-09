@@ -14,13 +14,9 @@ func twoSum(nums []int, target int) []int {
 			// 注意，顺序是j，i，因为j<i
 		}
 
-		// 把i和i的值，存入map
+		// 把序号i和i对应的值，存入map
 		m[nums[i]] = i
 	}
 
 	return nil
-}
-
-func addTwo(a, b int) int {
-	return a + b
 }
