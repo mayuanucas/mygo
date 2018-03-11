@@ -15,7 +15,7 @@ func usage() {
 	if "" != *inputDir {
 		fmt.Println("输入路径:", *inputDir)
 		fmt.Println("输出路径:", *outputDir)
-	}else {
+	} else {
 		fmt.Println("参数无效")
 	}
 
