@@ -18,7 +18,6 @@ func usage() {
 	} else {
 		fmt.Println("参数无效")
 	}
-
 }
 
 func main() {
