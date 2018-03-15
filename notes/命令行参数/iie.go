@@ -1,4 +1,4 @@
-package main
+package 命令行参数
 
 import (
 	"flag"
