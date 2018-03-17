@@ -53,3 +53,44 @@ func getNumberOfK(numbers []int, k int) int {
 	}
 	return 0
 }
+
+func getMissingNumber(numbers []int) int {
+	if nil == numbers || len(numbers) <= 0 {
+		return -1
+	}
+	left, right := 0, len(numbers)-1
+	for left <= right {
+		middle := (left + right) >> 1
+		if numbers[middle] != middle {
+			if 0 == middle || numbers[middle-1] == middle-1 {
+				return middle
+			}
+			right = middle - 1
+		} else {
+			left = middle + 1
+		}
+	}
+	if left == len(numbers) {
+		return len(numbers)
+	}
+	return -1
+}
+
+func getNumberSameAsIndex(numbers []int) int {
+	if nil == numbers {
+		return -1
+	}
+
+	left, right := 0, len(numbers)-1
+	for left <= right {
+		middle := (left + right) / 2
+		if numbers[middle] == middle {
+			return middle
+		} else if numbers[middle] > middle {
+			right = middle - 1
+		} else {
+			left = middle + 1
+		}
+	}
+	return -1
+}
