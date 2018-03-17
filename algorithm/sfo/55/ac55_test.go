@@ -16,4 +16,6 @@ func Test_treeDepth(t *testing.T) {
 
 	fmt.Println(treeDepth(&node1))
 
+	fmt.Println(isBalance(&node1))
+
 }
