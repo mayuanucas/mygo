@@ -1,6 +1,9 @@
 package problem56
 
-import "unsafe"
+import (
+	"unsafe"
+	"errors"
+)
 
 func findNumbersAppearOnce(data []int) (int, int) {
 	if nil == data || len(data) < 2 {
@@ -38,4 +41,29 @@ func isBit1(num int, indexBit uint) bool {
 		return true
 	}
 	return false
+}
+
+func findNumberAppearOnce2(numbers []int) int {
+	if nil == numbers || 0 >= len(numbers) {
+		panic(errors.New("invalid input"))
+	}
+
+	bitSum := make([]int, 32)
+	for i := 0; i < len(numbers); i++ {
+		bitMask := 1
+		for j := 31; j >= 0; j-- {
+			bit := numbers[i] & bitMask
+			if 0 != bit {
+				bitSum[j] += 1
+			}
+			bitMask = bitMask << 1
+		}
+	}
+
+	var result int
+	for i := 0; i < 32; i++ {
+		result = result << 1
+		result += bitSum[i] % 3
+	}
+	return result
 }
