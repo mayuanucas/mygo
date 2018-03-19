@@ -36,3 +36,16 @@ func reverseSentence(str string) string {
 	}
 	return string(copyCharArray)
 }
+
+func leftRotateString(str string, n int) string {
+	if len(str) < n {
+		return ""
+	}
+
+	copyCharArray := []rune(str)
+	reverse(copyCharArray[0:n])
+	reverse(copyCharArray[n:])
+	reverse(copyCharArray[:])
+
+	return string(copyCharArray)
+}
