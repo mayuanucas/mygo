@@ -4,13 +4,14 @@ import (
 	"fmt"
 	"time"
 	"errors"
-	"os"
 )
 
 func main() {
-	fmt.Println(os.Args)
-	fmt.Println(os.Args[1:])
-	fmt.Println(os.Args[2])
+	var runes []rune
+	for _, r := range "Hello,世界" {
+		runes = append(runes, r)
+	}
+	fmt.Printf("%q\n", runes)
 }
 
 func f2(text string) {
