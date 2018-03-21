@@ -12,6 +12,9 @@ func main() {
 		runes = append(runes, r)
 	}
 	fmt.Printf("%q\n", runes)
+	ages := make(map[string]int)
+	ages["libai"] = 49
+	fmt.Println(ages)
 }
 
 func f2(text string) {
