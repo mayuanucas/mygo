@@ -4,17 +4,19 @@ import (
 	"fmt"
 	"time"
 	"errors"
+	"os"
+	"strings"
 )
 
 func main() {
-	var runes []rune
-	for _, r := range "Hello,世界" {
-		runes = append(runes, r)
+	cwd, err := os.Getwd()
+	if err != nil {
+		fmt.Println(err.Error())
 	}
-	fmt.Printf("%q\n", runes)
-	ages := make(map[string]int)
-	ages["libai"] = 49
-	fmt.Println(ages)
+	fmt.Println("ok:", cwd)
+
+	str := "./ceshi"
+	fmt.Println(strings.HasPrefix(str, "."))
 }
 
 func f2(text string) {

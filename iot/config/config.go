@@ -9,4 +9,6 @@ var (
 	InputDir string
 	// 输入文件夹(该目录的子目录下为固件)
 	InputDir2 string
+	// 解压分析固件脚本的路径
+	Command string
 )
