@@ -4,19 +4,29 @@ import (
 	"fmt"
 	"time"
 	"errors"
-	"os"
-	"strings"
 )
 
 func main() {
-	cwd, err := os.Getwd()
-	if err != nil {
-		fmt.Println(err.Error())
-	}
-	fmt.Println("ok:", cwd)
+	c1 := make(chan string)
+	c2 := make(chan string)
 
-	str := "./ceshi"
-	fmt.Println(strings.HasPrefix(str, "."))
+	go func() {
+		time.Sleep(time.Second * 1)
+		c1 <- "one"
+	}()
+	go func() {
+		time.Sleep(time.Second * 2)
+		c2 <- "two"
+	}()
+
+	for i := 0; i < 2; i++ {
+		select {
+		case msg1 := <-c1:
+			fmt.Println("received", msg1)
+		case msg2 := <-c2:
+			fmt.Println("received", msg2)
+		}
+	}
 }
 
 func f2(text string) {
