@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"os"
 	"io/ioutil"
-	"os/exec"
 	"strings"
+	"os/exec"
 
 	"github.com/mayuanucas/mygo/iot/config"
 )
@@ -43,11 +43,27 @@ func GetOutputDir() (string, error) {
 	return outputDir, nil
 }
 
+func Task(extractCommand, firmwarePath, outputDir string) {
+	cmd := exec.Command(extractCommand, firmwarePath, outputDir, ">/dev/null 2>&1")
+	err := cmd.Run()
+	if err != nil {
+		fmt.Println(err.Error())
+	}
+	fmt.Println("done->", firmwarePath)
+}
+
 func main() {
 	flag.Parse()
 
 	if config.Version {
 		fmt.Printf("Firmware decompression analysis tool: version %s, developed by %s.\n", config.VERSION, config.AUTHOR)
+		return
+	}
+
+	// 获取解压脚本路径
+	extractCommand, err := GetExtractScript()
+	if err != nil {
+		fmt.Println("解压分析脚本不存在")
 		return
 	}
 
@@ -59,57 +75,49 @@ func main() {
 		fmt.Println("不支持 [-i -I] 同时使用.")
 		return
 	} else if len(config.InputDir) >= 1 {
+		outputDir, err := GetOutputDir()
+		if err != nil {
+			fmt.Printf("保存路径无效 %s\n", config.OutputDir)
+			return
+		}
+
 		files, _ := ioutil.ReadDir(config.InputDir)
 		for _, file := range files {
 			if file.IsDir() {
 				continue
 			}
 
-			// 获取解压脚本路径
-			extractCommand, err := GetExtractScript()
-			if err != nil {
-				fmt.Println("解压分析脚本不存在")
-			}
-
-			// 调用解压脚本对固件进行解压分析
 			firmwarePath := config.InputDir + string(os.PathSeparator) + file.Name()
-			outputDir, err := GetOutputDir()
-			if err != nil {
-				fmt.Printf("保存路径无效 %s\n", config.OutputDir)
-				return
-			}
-			cmd := exec.Command(extractCommand, firmwarePath, outputDir, ">/dev/null 2>&1")
-			err = cmd.Run()
-			if err != nil {
-				fmt.Println(err.Error())
-			}
-			fmt.Println("done->", firmwarePath)
+			Task(extractCommand, firmwarePath, outputDir)
 		}
+		fmt.Println("all done.")
 	} else if len(config.InputDir2) >= 1 {
+		outputDirRoot, err := GetOutputDir()
+		if err != nil {
+			fmt.Printf("保存路径无效 %s\n", config.OutputDir)
+			return
+		}
+
 		dirs, _ := ioutil.ReadDir(config.InputDir2)
 		for _, dir := range dirs {
 			if !dir.IsDir() {
 				continue
 			}
 
-			// 对每个目录建立对应解压后的子目录
-			outputDir := config.OutputDir + string(os.PathSeparator) + dir.Name()
-			e := os.Mkdir(outputDir, os.FileMode(0664))
-			if e != nil {
-				fmt.Println("创建目录失败:", outputDir)
-				return
-			}
-
+			outputDir := outputDirRoot + string(os.PathSeparator) + dir.Name()
 			// 解压分析该子目录下的所有固件
 			childFiles, _ := ioutil.ReadDir(config.InputDir2 + string(os.PathSeparator) + dir.Name())
 			for _, childFile := range childFiles {
 				if childFile.IsDir() {
 					continue
 				}
-				fmt.Println(childFile.Name())
-			}
 
+				firmwarePath := config.InputDir2 + string(os.PathSeparator) +
+					dir.Name() + string(os.PathSeparator) + childFile.Name()
+				Task(extractCommand, firmwarePath, outputDir)
+			}
 		}
+		fmt.Println("all done.")
 	} else {
 		return
 	}
