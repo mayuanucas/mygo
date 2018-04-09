@@ -44,7 +44,7 @@ func main() {
 		go lowwerCase(i, pool)
 		go upperCase(i, pool)
 	}
-	pool.Wait()
+	pool.WaitAll()
 
 	fmt.Println("all done.")
 }
