@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 	"time"
-	"github.com/mayuanucas/mygo/lib"
 	"runtime"
+	"github.com/mayuanucas/mygo/lib/grpool"
 )
 
 func main() {
@@ -39,8 +39,10 @@ func main() {
 	//wg.Wait()
 	//fmt.Println("\nTerminating Program")
 
-	pool := lib.New(runtime.NumCPU() + 1)
+	pool := grpool.New(runtime.NumCPU() + 1)
 	for i := 1; i <= 5; i++ {
+		pool.Add(2)
+
 		go lowwerCase(i, pool)
 		go upperCase(i, pool)
 	}
@@ -49,8 +51,7 @@ func main() {
 	fmt.Println("all done.")
 }
 
-func lowwerCase(id int, group *lib.Pool) {
-	group.Add(1)
+func lowwerCase(id int, group *grpool.Pool) {
 	defer group.Done()
 
 	fmt.Println("lowwerCase ID-->", id)
@@ -62,8 +63,7 @@ func lowwerCase(id int, group *lib.Pool) {
 	fmt.Println("done-->", id)
 }
 
-func upperCase(id int, group *lib.Pool) {
-	group.Add(1)
+func upperCase(id int, group *grpool.Pool) {
 	defer group.Done()
 
 	fmt.Println("upperCase ID-->", id)
