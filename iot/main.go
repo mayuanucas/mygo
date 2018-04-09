@@ -6,10 +6,18 @@ import (
 	"os"
 	"io/ioutil"
 	"strings"
+	"runtime"
+	"log"
 	"os/exec"
 
 	"github.com/mayuanucas/mygo/iot/config"
+	"github.com/mayuanucas/mygo/lib/grpool"
 )
+
+func init() {
+	log.SetPrefix("TRACE: ")
+	log.SetFlags(log.Ldate | log.Lmicroseconds | log.Llongfile)
+}
 
 func init() {
 	flag.BoolVar(&config.Version, "v", false, "显示版本信息")
@@ -17,6 +25,7 @@ func init() {
 	flag.StringVar(&config.InputDir, "i", "", "指定输入文件夹(该文件夹下为固件)")
 	flag.StringVar(&config.InputDir2, "I", "", "指定输入文件夹(该文件夹的子目录下为固件)")
 	flag.StringVar(&config.Command, "c", config.COMMAND, "指定解压分析固件脚本的路径")
+	flag.Parse()
 }
 
 func GetExtractScript() (string, error) {
@@ -43,18 +52,18 @@ func GetOutputDir() (string, error) {
 	return outputDir, nil
 }
 
-func Task(extractCommand, firmwarePath, outputDir string) {
+func Task(extractCommand, firmwarePath, outputDir string, pool *grpool.Pool) {
+	defer pool.Done()
+
 	cmd := exec.Command(extractCommand, firmwarePath, outputDir, ">/dev/null 2>&1")
 	err := cmd.Run()
 	if err != nil {
-		fmt.Println(err.Error())
+		fmt.Println(err)
 	}
-	fmt.Println("done->", firmwarePath)
+	log.Println("done->", firmwarePath)
 }
 
 func main() {
-	flag.Parse()
-
 	if config.Version {
 		fmt.Printf("Firmware decompression analysis tool: version %s, developed by %s.\n", config.VERSION, config.AUTHOR)
 		return
@@ -63,7 +72,7 @@ func main() {
 	// 获取解压脚本路径
 	extractCommand, err := GetExtractScript()
 	if err != nil {
-		fmt.Println("解压分析脚本不存在")
+		fmt.Println("解压分析脚本不存在.")
 		return
 	}
 
@@ -81,6 +90,8 @@ func main() {
 			return
 		}
 
+		pool := grpool.New(runtime.NumCPU() + 1)
+
 		files, _ := ioutil.ReadDir(config.InputDir)
 		for _, file := range files {
 			if file.IsDir() {
@@ -88,15 +99,21 @@ func main() {
 			}
 
 			firmwarePath := config.InputDir + string(os.PathSeparator) + file.Name()
-			Task(extractCommand, firmwarePath, outputDir)
+
+			pool.Add(1)
+			go Task(extractCommand, firmwarePath, outputDir, pool)
 		}
-		fmt.Println("all done.")
+		pool.WaitAll()
+
+		log.Println("all done.")
 	} else if len(config.InputDir2) >= 1 {
 		outputDirRoot, err := GetOutputDir()
 		if err != nil {
 			fmt.Printf("保存路径无效 %s\n", config.OutputDir)
 			return
 		}
+
+		pool := grpool.New(runtime.NumCPU() + 1)
 
 		dirs, _ := ioutil.ReadDir(config.InputDir2)
 		for _, dir := range dirs {
@@ -114,10 +131,14 @@ func main() {
 
 				firmwarePath := config.InputDir2 + string(os.PathSeparator) +
 					dir.Name() + string(os.PathSeparator) + childFile.Name()
-				Task(extractCommand, firmwarePath, outputDir)
+
+				pool.Add(1)
+				go Task(extractCommand, firmwarePath, outputDir, pool)
 			}
 		}
-		fmt.Println("all done.")
+		pool.WaitAll()
+
+		log.Println("all done.")
 	} else {
 		return
 	}
