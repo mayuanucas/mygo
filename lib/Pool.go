@@ -34,6 +34,6 @@ func (p *Pool) Done() {
 	p.wg.Done()
 }
 
-func (p *Pool) Wait() {
+func (p *Pool) WaitAll() {
 	p.wg.Wait()
 }
