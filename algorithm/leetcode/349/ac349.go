@@ -1,10 +1,10 @@
 package problem349
 
 func intersection(nums1 []int, nums2 []int) []int {
-	if len(nums1) == 0 {
+	if nil == nums1 || len(nums1) == 0 {
 		return nums1
 	}
-	if len(nums2) == 0 {
+	if nil == nums2 || len(nums2) == 0 {
 		return nums2
 	}
 
