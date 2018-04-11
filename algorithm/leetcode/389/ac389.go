@@ -18,3 +18,16 @@ func findTheDifference(s string, t string) byte {
 	}
 	return byte(0)
 }
+
+// 更高效的做法
+func findTheDifference2(s string, t string) byte {
+	ans := byte(0)
+
+	for i := 0; i < len(s); i++ {
+		ans ^= s[i]
+	}
+	for i := 0; i < len(t); i++ {
+		ans ^= t[i]
+	}
+	return ans
+}
