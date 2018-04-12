@@ -9,5 +9,5 @@ func Test_addStrings(t *testing.T) {
 	str1 := "123"
 	str2 := "231"
 
-	fmt.Println(addStrings(str1, str2))
+	fmt.Println(addStrings2(str1, str2))
 }
