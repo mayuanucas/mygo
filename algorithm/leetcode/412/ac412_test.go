@@ -6,7 +6,7 @@ import (
 )
 
 func Test_fizzBuzz(t *testing.T) {
-	for _, v := range fizzBuzz(15) {
+	for _, v := range fizzBuzz2(15) {
 		fmt.Println(v)
 	}
 }
