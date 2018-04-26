@@ -1,9 +1,7 @@
 package problem520
 
 func detectCapitalUse(word string) bool {
-	if len(word) < 1 {
-		return false
-	} else if len(word) == 1 {
+	if len(word) <= 1 {
 		return true
 	}
 
