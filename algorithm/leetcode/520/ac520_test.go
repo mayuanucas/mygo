@@ -14,4 +14,8 @@ func Test_detectCapitalUse(t *testing.T) {
 
 	str3 := "LEETcode"
 	fmt.Println(detectCapitalUse(str3))
+
+	fmt.Println(detectCapitalUse2(str1))
+	fmt.Println(detectCapitalUse2(str2))
+	fmt.Println(detectCapitalUse2(str3))
 }
