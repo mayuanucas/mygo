@@ -1,5 +1,7 @@
 package problem551
 
+import "strings"
+
 func checkRecord(s string) bool {
 	countA := 0
 
@@ -18,4 +20,8 @@ func checkRecord(s string) bool {
 		return false
 	}
 	return true
+}
+
+func checkRecord2(s string) bool {
+	return strings.IndexByte(s, 'A') == strings.LastIndexByte(s, 'A') && !strings.Contains(s, "LLL")
 }
