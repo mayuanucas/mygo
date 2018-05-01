@@ -22,3 +22,24 @@ func matrixReshape(nums [][]int, r int, c int) [][]int {
 	}
 	return ans
 }
+
+func matrixReshape2(nums [][]int, r int, c int) [][]int {
+	if nil == nums || 0 == len(nums) || len(nums)*len(nums[0]) != r*c {
+		return nums
+	}
+
+	originCol := len(nums[0])
+
+	ans := make([][]int, r)
+	for row := 0; row < r; row++ {
+		temp := make([]int, c)
+		for col := 0; col < c; col++ {
+			idx := row*c + col
+			currentRow := idx / originCol
+			currentCol := idx % originCol
+			temp[col] = nums[currentRow][currentCol]
+		}
+		ans[row] = temp
+	}
+	return ans
+}
