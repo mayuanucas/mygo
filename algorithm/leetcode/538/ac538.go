@@ -11,20 +11,20 @@ func convertBST(root *TreeNode) *TreeNode {
 		return root
 	}
 
-	sums := []int{0}
-	convertBSTCore(root, sums)
+	sums := 0
+	convertBSTCore(root, &sums)
 	return root
 }
 
-func convertBSTCore(root *TreeNode, sums []int) {
+func convertBSTCore(root *TreeNode, sums *int) {
 	if nil == root {
 		return
 	}
 
 	convertBSTCore(root.Right, sums)
 
-	root.Val += sums[0]
-	sums[0] = root.Val
+	root.Val += *sums
+	*sums = root.Val
 
 	convertBSTCore(root.Left, sums)
 }
