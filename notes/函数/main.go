@@ -9,7 +9,7 @@ func main() {
 	fmt.Println(add(9, 12, 1))
 	fmt.Println(add2(9, 12, 1))
 	fmt.Println(add3(false, 12, 1))
-	fmt.Println(swap("hello", "golang"))
+	fmt.Println(swap("time", "golang"))
 	fmt.Println(split(20))
 }
 
