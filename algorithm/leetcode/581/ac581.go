@@ -24,3 +24,38 @@ func findUnsortedSubarray(nums []int) int {
 	}
 	return right - left + 1
 }
+
+func findUnsortedSubarray2(nums []int) int {
+	if nil == nums || len(nums) == 0 {
+		return 0
+	}
+
+	n := len(nums)
+	begin, end := -1, -2
+	min, max := nums[n-1], nums[0]
+	for i := 1; i < n; i++ {
+		max = myMax(max, nums[i])
+		min = myMin(min, nums[n-1-i])
+		if nums[i] < max {
+			end = i
+		}
+		if nums[n-1-i] > min {
+			begin = n - 1 - i
+		}
+	}
+	return end - begin + 1
+}
+
+func myMax(a, b int) int {
+	if a >= b {
+		return a
+	}
+	return b
+}
+
+func myMin(a, b int) int {
+	if a <= b {
+		return a
+	}
+	return b
+}
