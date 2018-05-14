@@ -33,6 +33,27 @@
 | 83   | [删除排序链表中的重复元素](algorithm/leetcode/083) | 简单  |
 | 88   | [合并两个有序数组](algorithm/leetcode/088) | 简单  |
 | 100   | [相同的树](algorithm/leetcode/100) | 简单  |
+| 101   | [对称二叉树](algorithm/leetcode/101) | 简单  |
+| 104   | [二叉树的最大深度](algorithm/leetcode/104) | 简单  |
+| 107   | [二叉树的层次遍历 II](algorithm/leetcode/107) | 简单  |
+| 108   | [将有序数组转换为二叉搜索树 ](algorithm/leetcode/108) | 简单  |
+| 110   | [平衡二叉树](algorithm/leetcode/110) | 简单  |
+| 111   | [二叉树的最小深度](algorithm/leetcode/111) | 简单  |
+| 112   | [路径总和](algorithm/leetcode/112) | 简单  |
+| 118   | [杨辉三角](algorithm/leetcode/118) | 简单  |
+| 119   | [杨辉三角 II](algorithm/leetcode/119) | 简单  |
+| 121   | [买卖股票的最佳时机](algorithm/leetcode/121) | 简单  |
+| 122   | [买卖股票的最佳时机 II](algorithm/leetcode/122) | 简单  |
+| 125   | [验证回文串](algorithm/leetcode/125) | 简单  |
+| 136   | [只出现一次的数字](algorithm/leetcode/136) | 简单  |
+| 167   | [两数之和 II - 输入有序数组](algorithm/leetcode/167) | 简单  |
+| 168   | [Excel表列名称](algorithm/leetcode/168) | 简单  |
+| 169   | [求众数](algorithm/leetcode/169) | 简单  |
+| 171   | [Excel表列序号](algorithm/leetcode/171) | 简单  |
+| 172   | [阶乘后的零](algorithm/leetcode/172) | 简单  |
+| 189   | [旋转数组](algorithm/leetcode/189) | 简单  |
+| 198   | [打家劫舍](algorithm/leetcode/198) | 简单  |
+
 
 ### 剑指offer(第二版)
 
