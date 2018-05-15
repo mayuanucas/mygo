@@ -53,6 +53,86 @@
 | 172   | [阶乘后的零](algorithm/leetcode/172) | 简单  |
 | 189   | [旋转数组](algorithm/leetcode/189) | 简单  |
 | 198   | [打家劫舍](algorithm/leetcode/198) | 简单  |
+| 202   | [快乐数](algorithm/leetcode/202) | 简单  |
+| 203   | [删除链表中的节点](algorithm/leetcode/203) | 简单  |
+| 204   | [计数质数](algorithm/leetcode/204) | 简单  |
+| 205   | [同构字符串](algorithm/leetcode/205) | 简单  |
+| 206   | [反转链表](algorithm/leetcode/206) | 简单  |
+| 217   | [存在重复元素](algorithm/leetcode/217) | 简单  |
+| 219   | [存在重复元素 II](algorithm/leetcode/219) | 简单  |
+| 226   | [翻转二叉树](algorithm/leetcode/226) | 简单  |
+| 231   | [2的幂](algorithm/leetcode/231) | 简单  |
+| 234   | [回文链表](algorithm/leetcode/234) | 简单  |
+| 258   | [各位相加](algorithm/leetcode/258) | 简单  |
+| 263   | [丑数](algorithm/leetcode/263) | 简单  |
+| 268   | [缺失数字](algorithm/leetcode/268) | 简单  |
+| 283   | [移动零](algorithm/leetcode/283) | 简单  |
+| 290   | [单词模式](algorithm/leetcode/290) | 简单  |
+| 292   | [Nim游戏](algorithm/leetcode/292) | 简单  |
+| 303   | [区域和检索 - 不可变](algorithm/leetcode/303) | 简单  |
+| 326   | [3的幂](algorithm/leetcode/326) | 简单  |
+| 342   | [4的幂](algorithm/leetcode/342) | 简单  |
+| 344   | [反转字符串](algorithm/leetcode/344) | 简单  |
+| 345   | [反转字符串中的元音字母](algorithm/leetcode/345) | 简单  |
+| 349   | [两个数组的交集](algorithm/leetcode/349) | 简单  |
+| 350   | [两个数组的交集 II](algorithm/leetcode/350) | 简单  |
+| 367   | [有效的完全平方数](algorithm/leetcode/367) | 简单  |
+| 371   | [两整数之和](algorithm/leetcode/371) | 简单  |
+| 383   | [赎金信](algorithm/leetcode/383) | 简单  |
+| 387   | [字符串中的第一个唯一字符](algorithm/leetcode/387) | 简单  |
+| 389   | [找不同](algorithm/leetcode/389) | 简单  |
+| 400   | [第N个数字](algorithm/leetcode/400) | 简单  |
+| 404   | [左叶子之和](algorithm/leetcode/404) | 简单  |
+| 405   | [数字转换为十六进制数](algorithm/leetcode/405) | 简单  |
+| 409   | [最长回文串](algorithm/leetcode/409) | 简单  |
+| 412   | [Fizz Buzz](algorithm/leetcode/412) | 简单  |
+| 414   | [第三大的数](algorithm/leetcode/414) | 简单  |
+| 415   | [字符串相加](algorithm/leetcode/415) | 简单  |
+| 434   | [字符串中的单词数](algorithm/leetcode/434) | 简单  |
+| 437   | [路径总和 III](algorithm/leetcode/437) | 简单  |
+| 438   | [找到字符串中所有字母异位词](algorithm/leetcode/438) | 简单  |
+| 441   | [排列硬币](algorithm/leetcode/441) | 简单  |
+| 443   | [压缩字符串](algorithm/leetcode/443) | 简单  |
+| 447   | [回旋镖的数量](algorithm/leetcode/447) | 简单  |
+| 448   | [找到所有数组中消失的数字](algorithm/leetcode/448) | 简单  |
+| 453   | [最小移动次数使数组元素相等](algorithm/leetcode/453) | 简单  |
+| 455   | [分发饼干](algorithm/leetcode/455) | 简单  |
+| 459   | [重复的子字符串](algorithm/leetcode/459) | 简单  |
+| 461   | [汉明距离](algorithm/leetcode/461) | 简单  |
+| 463   | [岛屿的周长](algorithm/leetcode/463) | 简单  |
+| 475   | [供暖器](algorithm/leetcode/475) | 简单  |
+| 476   | [数字的补数](algorithm/leetcode/476) | 简单  |
+| 479   | [最大回文数乘积](algorithm/leetcode/479) | 简单  |
+| 485   | [最大连续1的个数](algorithm/leetcode/485) | 简单  |
+| 492   | [构造矩形](algorithm/leetcode/492) | 简单  |
+| 496   | [下一个更大元素 I](algorithm/leetcode/496) | 简单  |
+| 500   | [键盘行](algorithm/leetcode/500) | 简单  |
+| 501   | [Find Mode in Binary Search Tree](algorithm/leetcode/501) | 简单  |
+| 504   | [七进制数](algorithm/leetcode/504) | 简单  |
+| 506   | [相对名次](algorithm/leetcode/506) | 简单  |
+| 507   | [完美数](algorithm/leetcode/507) | 简单  |
+| 520   | [检测大写字母](algorithm/leetcode/520) | 简单  |
+| 521   | [最长特殊序列 Ⅰ](algorithm/leetcode/521) | 简单  |
+| 530   | [二叉搜索树的最小绝对差](algorithm/leetcode/530) | 简单  |
+| 532   | [数组中的K-diff数对](algorithm/leetcode/532) | 简单  |
+| 538   | [把二叉搜索树转换为累加树](algorithm/leetcode/538) | 简单  |
+| 541   | [反转字符串 II](algorithm/leetcode/541) | 简单  |
+| 543   | [二叉树的直径](algorithm/leetcode/543) | 简单  |
+| 551   | [学生出勤纪录 I](algorithm/leetcode/551) | 简单  |
+| 557   | [反转字符串中的单词 III](algorithm/leetcode/557) | 简单  |
+| 561   | [数组拆分 I](algorithm/leetcode/561) | 简单  |
+| 563   | [二叉树的坡度](algorithm/leetcode/563) | 简单  |
+| 566   | [重塑矩阵](algorithm/leetcode/566) | 简单  |
+| 572   | [另一个树的子树](algorithm/leetcode/572) | 简单  |
+| 575   | [分糖果](algorithm/leetcode/575) | 简单  |
+| 581   | [最短无序连续子数组](algorithm/leetcode/581) | 简单  |
+| 594   | [最长和谐子序列](algorithm/leetcode/594) | 简单  |
+| 598   | [范围求和 II](algorithm/leetcode/598) | 简单  |
+| 599   | [两个列表的最小索引总和](algorithm/leetcode/599) | 简单  |
+| 605   | [种花问题](algorithm/leetcode/605) | 简单  |
+| 606   | [根据二叉树创建字符串](algorithm/leetcode/606) | 简单  |
+| 617   | [合并二叉树](algorithm/leetcode/617) | 简单  |
+| 628   | [三个数的最大乘积](algorithm/leetcode/628) | 简单  |
 
 
 ### 剑指offer(第二版)
