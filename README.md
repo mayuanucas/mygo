@@ -133,6 +133,8 @@
 | 606   | [根据二叉树创建字符串](algorithm/leetcode/606) | 简单  |
 | 617   | [合并二叉树](algorithm/leetcode/617) | 简单  |
 | 628   | [三个数的最大乘积](algorithm/leetcode/628) | 简单  |
+| 633   | [平方数之和](algorithm/leetcode/633) | 简单  |
+| 637   | [二叉树的层平均值](algorithm/leetcode/637) | 简单  |
 
 
 ### 剑指offer(第二版)
