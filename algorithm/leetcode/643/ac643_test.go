@@ -12,4 +12,5 @@ func Test_findMaxAverage(t *testing.T) {
 
 	nums2 := []int{-1}
 	fmt.Println(findMaxAverage(nums2, 1))
+
 }
