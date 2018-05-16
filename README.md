@@ -135,6 +135,8 @@
 | 628   | [三个数的最大乘积](algorithm/leetcode/628) | 简单  |
 | 633   | [平方数之和](algorithm/leetcode/633) | 简单  |
 | 637   | [二叉树的层平均值](algorithm/leetcode/637) | 简单  |
+| 643   | [子数组最大平均数 I](algorithm/leetcode/643) | 简单  |
+| 645   | [错误的集合](algorithm/leetcode/645) | 简单  |
 
 
 ### 剑指offer(第二版)
