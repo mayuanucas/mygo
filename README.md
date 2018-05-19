@@ -141,6 +141,7 @@
 | 657   | [判断路线成圈](algorithm/leetcode/657) | 简单  |
 | 674   | [最长连续递增序列](algorithm/leetcode/674) | 简单  |
 | 682   | [棒球比赛](algorithm/leetcode/682) | 简单  |
+| 728   | [自除数](algorithm/leetcode/728) | 简单  |
 
 
 ### 剑指offer(第二版)
