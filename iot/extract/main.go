@@ -1,4 +1,4 @@
-package main
+package extract
 
 import (
 	"flag"
@@ -10,7 +10,7 @@ import (
 	"log"
 	"os/exec"
 
-	"github.com/mayuanucas/mygo/iot/config"
+	"github.com/mayuanucas/mygo/iot/extract/config"
 	"github.com/mayuanucas/mygo/lib/grpool"
 )
 
