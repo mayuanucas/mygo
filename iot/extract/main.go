@@ -1,4 +1,4 @@
-package extract
+package main
 
 import (
 	"flag"
