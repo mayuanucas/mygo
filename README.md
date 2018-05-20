@@ -139,6 +139,7 @@
 | 645   | [错误的集合](algorithm/leetcode/645) | 简单  |
 | 653   | [两数之和 IV - 输入 BST](algorithm/leetcode/653) | 简单  |
 | 657   | [判断路线成圈](algorithm/leetcode/657) | 简单  |
+| 661   | [图片平滑器](algorithm/leetcode/661) | 简单  |
 | 669   | [修剪二叉搜索树](algorithm/leetcode/669) | 简单  |
 | 674   | [最长连续递增序列](algorithm/leetcode/674) | 简单  |
 | 682   | [棒球比赛](algorithm/leetcode/682) | 简单  |
