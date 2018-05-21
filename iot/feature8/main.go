@@ -61,8 +61,9 @@ func main() {
 		}
 
 		binFilePath := config.InputDir + string(os.PathSeparator) + file.Name()
+		outputResultPath := outputDir + string(os.PathSeparator) + file.Name() + ".json"
 		pool.Add(1)
-		go Task(userCommand, binFilePath, outputDir, pool)
+		go Task(userCommand, binFilePath, outputResultPath, pool)
 	}
 	pool.WaitAll()
 	log.Println("All tasks are completed.")
@@ -92,10 +93,10 @@ func GetOutputDir() (string, error) {
 	return outputDir, nil
 }
 
-func Task(command, binFilePath, outputDir string, pool *grpool.Pool) {
+func Task(command, binFilePath, output string, pool *grpool.Pool) {
 	defer pool.Done()
 	//忽略脚本的输出信息
-	cmd := exec.Command(command, binFilePath, outputDir, ">/dev/null 2>&1")
+	cmd := exec.Command("python", command, "-b", binFilePath, "-o", output, ">/dev/null 2>&1")
 	err := cmd.Run()
 	if err != nil {
 		log.Println("error->", err)
