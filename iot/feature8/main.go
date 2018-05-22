@@ -8,10 +8,9 @@ import (
 	"os/exec"
 	"fmt"
 	"io/ioutil"
-	"runtime"
-
 	"github.com/mayuanucas/mygo/lib/grpool"
 	"github.com/mayuanucas/mygo/iot/feature8/config"
+	"runtime"
 )
 
 func init() {
@@ -64,6 +63,8 @@ func main() {
 		outputResultPath := outputDir + string(os.PathSeparator) + file.Name() + ".json"
 		pool.Add(1)
 		go Task(userCommand, binFilePath, outputResultPath, pool)
+		//oneTask(userCommand, binFilePath, outputResultPath)
+		//time.Sleep(1 * time.Minute)
 	}
 	pool.WaitAll()
 	log.Println("All tasks are completed.")
@@ -90,16 +91,60 @@ func GetOutputDir() (string, error) {
 	if strings.HasPrefix(outputDir, ".") {
 		outputDir = cwd + string(os.PathSeparator) + outputDir[1:]
 	}
+	// 指定保存目录不存在，则创建
+	if !IsDir(outputDir) {
+		os.MkdirAll(outputDir, 0775)
+	}
+
 	return outputDir, nil
 }
 
 func Task(command, binFilePath, output string, pool *grpool.Pool) {
 	defer pool.Done()
 	//忽略脚本的输出信息
-	cmd := exec.Command("python", command, "-b", binFilePath, "-o", output, ">/dev/null 2>&1")
+	cmd := exec.Command("/usr/bin/python2", command, "-b", binFilePath, "-o", output)
 	err := cmd.Run()
 	if err != nil {
 		log.Println("error->", err)
+	} else {
+		log.Println("done->", output)
 	}
-	log.Println("done->", binFilePath)
+}
+
+func oneTask(command, binFilePath, output string) {
+	//忽略脚本的输出信息
+	cmd := exec.Command("/usr/bin/python2", command, "-b", binFilePath, "-o", output)
+	err := cmd.Run()
+	if err != nil {
+		log.Println("error->", err)
+	} else {
+		log.Println("done->", output)
+	}
+}
+
+// 判断所给路径文件/文件夹是否存在
+func Exists(path string) bool {
+	// os.Stat获取文件信息
+	_, err := os.Stat(path)
+	if err != nil {
+		if os.IsExist(err) {
+			return true
+		}
+		return false
+	}
+	return true
+}
+
+// 判断所给路径是否为文件夹
+func IsDir(path string) bool {
+	s, err := os.Stat(path)
+	if err != nil {
+		return false
+	}
+	return s.IsDir()
+}
+
+// 判断所给路径是否为文件
+func IsFile(path string) bool {
+	return !IsDir(path)
 }
