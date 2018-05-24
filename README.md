@@ -145,6 +145,7 @@
 | 682   | [棒球比赛](algorithm/leetcode/682) | 简单  |
 | 686   | [重复叠加字符串匹配](algorithm/leetcode/686) | 简单  |
 | 687   | [最长同值路径](algorithm/leetcode/687) | 简单  |
+| 693   | [交替位二进制数](algorithm/leetcode/693) | 简单  |
 | 728   | [自除数](algorithm/leetcode/728) | 简单  |
 
 
