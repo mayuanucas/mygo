@@ -33,10 +33,12 @@ func dfs(node *TreeNode, res []int) int {
 		resr = r + 1
 	}
 
+	// 当前节点的左右子树连接，成为最长同值路径
 	if res[0] < resl+resr {
 		res[0] = resl + resr
 	}
 
+	// 最长同值路径仅出现在当前节点的左子树 或者 右子树
 	if resl >= resr {
 		return resl
 	} else {
