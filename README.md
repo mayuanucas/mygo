@@ -147,6 +147,7 @@
 | 687   | [最长同值路径](algorithm/leetcode/687) | 简单  |
 | 693   | [交替位二进制数](algorithm/leetcode/693) | 简单  |
 | 695   | [岛屿的最大面积](algorithm/leetcode/695) | 简单  |
+| 696   | [计数二进制子串](algorithm/leetcode/696) | 简单  |
 | 728   | [自除数](algorithm/leetcode/728) | 简单  |
 
 
