@@ -149,6 +149,7 @@
 | 695   | [岛屿的最大面积](algorithm/leetcode/695) | 简单  |
 | 696   | [计数二进制子串](algorithm/leetcode/696) | 简单  |
 | 697   | [数组的度](algorithm/leetcode/697) | 简单  |
+| 717   | [1比特与2比特字符](algorithm/leetcode/717) | 简单  |
 | 728   | [自除数](algorithm/leetcode/728) | 简单  |
 
 
