@@ -150,6 +150,7 @@
 | 696   | [计数二进制子串](algorithm/leetcode/696) | 简单  |
 | 697   | [数组的度](algorithm/leetcode/697) | 简单  |
 | 717   | [1比特与2比特字符](algorithm/leetcode/717) | 简单  |
+| 724   | [寻找数组的中心索引](algorithm/leetcode/724) | 简单  |
 | 728   | [自除数](algorithm/leetcode/728) | 简单  |
 
 
