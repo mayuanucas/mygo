@@ -152,6 +152,7 @@
 | 717   | [1比特与2比特字符](algorithm/leetcode/717) | 简单  |
 | 724   | [寻找数组的中心索引](algorithm/leetcode/724) | 简单  |
 | 728   | [自除数](algorithm/leetcode/728) | 简单  |
+| 788   | [旋转数字](algorithm/leetcode/788) | 简单  |
 
 
 ### 剑指offer(第二版)
