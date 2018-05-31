@@ -154,6 +154,7 @@
 | 728   | [自除数](algorithm/leetcode/728) | 简单  |
 | 744   | [寻找比目标字母大的最小字母](algorithm/leetcode/744) | 简单  |
 | 746   | [使用最小花费爬楼梯](algorithm/leetcode/746) | 简单  |
+| 762   | [二进制表示中质数个计算置位](algorithm/leetcode/762) | 简单  |
 | 771   | [宝石与石头](algorithm/leetcode/771) | 简单  |
 | 788   | [旋转数字](algorithm/leetcode/788) | 简单  |
 
