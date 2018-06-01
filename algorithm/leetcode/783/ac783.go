@@ -8,7 +8,7 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
-// 因为给定的是二叉搜索树，故可以采用中序遍历
+// 因为给定的是二叉搜索树，故可以采用中序遍历 data[1]代表pre
 func minDiffInBST(root *TreeNode) int {
 	data := make([]int, 2)
 	data[0] = math.MaxInt32

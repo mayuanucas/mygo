@@ -158,6 +158,7 @@
 | 762   | [二进制表示中质数个计算置位](algorithm/leetcode/762) | 简单  |
 | 766   | [托普利茨矩阵](algorithm/leetcode/766) | 简单  |
 | 771   | [宝石与石头](algorithm/leetcode/771) | 简单  |
+| 783   | [二叉搜索树结点最小距离](algorithm/leetcode/783) | 简单  |
 | 788   | [旋转数字](algorithm/leetcode/788) | 简单  |
 
 
