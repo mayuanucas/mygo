@@ -156,6 +156,7 @@
 | 746   | [使用最小花费爬楼梯](algorithm/leetcode/746) | 简单  |
 | 747   | [至少是其他数字两倍的最大数](algorithm/leetcode/747) | 简单  |
 | 762   | [二进制表示中质数个计算置位](algorithm/leetcode/762) | 简单  |
+| 766   | [托普利茨矩阵](algorithm/leetcode/766) | 简单  |
 | 771   | [宝石与石头](algorithm/leetcode/771) | 简单  |
 | 788   | [旋转数字](algorithm/leetcode/788) | 简单  |
 
