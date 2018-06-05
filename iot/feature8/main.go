@@ -59,6 +59,7 @@ func main() {
 	log.Println("All tasks are completed.")
 }
 
+// 采用递归的方式处理多级目录下的二进制文件
 func handleBin(command, inputDir, outputDir string, pool *grpool.Pool) {
 	files, _ := ioutil.ReadDir(inputDir)
 	for _, file := range files {
@@ -67,18 +68,18 @@ func handleBin(command, inputDir, outputDir string, pool *grpool.Pool) {
 				inputDir+string(os.PathSeparator)+file.Name(),
 				outputDir+string(os.PathSeparator)+file.Name(),
 				pool)
+		} else {
+			binFilePath := inputDir + string(os.PathSeparator) + file.Name()
+			outputResultPath := outputDir + string(os.PathSeparator) + file.Name()
+
+			// 指定保存目录不存在，则创建
+			if !IsDir(outputDir) {
+				os.MkdirAll(outputDir, 0775)
+			}
+
+			pool.Add(1)
+			go Task(command, binFilePath, outputResultPath, pool)
 		}
-
-		binFilePath := inputDir + string(os.PathSeparator) + file.Name()
-		outputResultPath := outputDir + string(os.PathSeparator) + file.Name()
-
-		// 指定保存目录不存在，则创建
-		if !IsDir(outputDir) {
-			os.MkdirAll(outputDir, 0775)
-		}
-
-		pool.Add(1)
-		go Task(command, binFilePath, outputResultPath, pool)
 	}
 }
 
