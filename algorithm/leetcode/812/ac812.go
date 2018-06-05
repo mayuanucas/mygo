@@ -2,6 +2,8 @@ package problem812
 
 import "math"
 
+// 从坐标计算三角形的面积公式为：
+// area = |xa*yb + xb*yc + xc*ya - xa*yc - xb*ya - xc*yb| / 2
 func largestTriangleArea(points [][]int) float64 {
 	ans := 0.0
 	for _, i := range points {
