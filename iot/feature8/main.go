@@ -21,7 +21,7 @@ func init() {
 func init() {
 	flag.BoolVar(&config.Version, "v", false, "显示版本信息")
 	flag.StringVar(&config.Command, "c", config.COMMAND, "指定分析脚本的路径")
-	flag.StringVar(&config.InputDir, "i", "", "指定输入文件夹(该文件夹下为二进制程序)")
+	flag.StringVar(&config.InputDir, "i", "", "指定输入文件夹(支持迭代)")
 	flag.StringVar(&config.OutputDir, "o", config.OUTPUTDIR, "指定输出文件夹")
 	flag.Parse()
 }
@@ -52,22 +52,34 @@ func main() {
 	}
 
 	pool := grpool.New(runtime.NumCPU() + 1)
-	files, _ := ioutil.ReadDir(config.InputDir)
-	for _, file := range files {
-		// 忽略该目录下的文件夹
-		if file.IsDir() {
-			continue
-		}
 
-		binFilePath := config.InputDir + string(os.PathSeparator) + file.Name()
-		outputResultPath := outputDir + string(os.PathSeparator) + file.Name() + ".json"
-		pool.Add(1)
-		go Task(userCommand, binFilePath, outputResultPath, pool)
-		//oneTask(userCommand, binFilePath, outputResultPath)
-		//time.Sleep(1 * time.Minute)
-	}
+	handleBin(userCommand, config.InputDir, outputDir, pool)
+
 	pool.WaitAll()
 	log.Println("All tasks are completed.")
+}
+
+func handleBin(command, inputDir, outputDir string, pool *grpool.Pool) {
+	files, _ := ioutil.ReadDir(inputDir)
+	for _, file := range files {
+		if file.IsDir() {
+			handleBin(command,
+				inputDir+string(os.PathSeparator)+file.Name(),
+				outputDir+string(os.PathSeparator)+file.Name(),
+				pool)
+		}
+
+		binFilePath := inputDir + string(os.PathSeparator) + file.Name()
+		outputResultPath := outputDir + string(os.PathSeparator) + file.Name()
+
+		// 指定保存目录不存在，则创建
+		if !IsDir(outputDir) {
+			os.MkdirAll(outputDir, 0775)
+		}
+
+		pool.Add(1)
+		go Task(command, binFilePath, outputResultPath, pool)
+	}
 }
 
 func GetExtractScript() (string, error) {
@@ -101,17 +113,6 @@ func GetOutputDir() (string, error) {
 
 func Task(command, binFilePath, output string, pool *grpool.Pool) {
 	defer pool.Done()
-	//忽略脚本的输出信息
-	cmd := exec.Command("/usr/bin/python2", command, "-b", binFilePath, "-o", output)
-	err := cmd.Run()
-	if err != nil {
-		log.Println("error->", err)
-	} else {
-		log.Println("done->", output)
-	}
-}
-
-func oneTask(command, binFilePath, output string) {
 	//忽略脚本的输出信息
 	cmd := exec.Command("/usr/bin/python2", command, "-b", binFilePath, "-o", output)
 	err := cmd.Run()
