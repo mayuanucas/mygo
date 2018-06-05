@@ -164,6 +164,7 @@
 | 796   | [旋转字符串](algorithm/leetcode/796) | 简单  |
 | 804   | [唯一摩尔斯密码词](algorithm/leetcode/804) | 简单  |
 | 811   | [子域名访问计数](algorithm/leetcode/811) | 简单  |
+| 812   | [最大三角形面积](algorithm/leetcode/812) | 简单  |
 
 
 ### 剑指offer(第二版)
