@@ -34,7 +34,7 @@ func main() {
 	}
 
 	if config.Version {
-		fmt.Printf("Feature extraction tool: version %s, developed by %s.\n", config.VERSION, config.AUTHOR)
+		fmt.Printf("Feature extraction from i64 tool: version %s, developed by %s.\n", config.VERSION, config.AUTHOR)
 		return
 	}
 
@@ -115,7 +115,7 @@ func GetOutputDir() (string, error) {
 func Task(command, binFilePath, output string, pool *grpool.Pool) {
 	defer pool.Done()
 	//忽略脚本的输出信息
-	cmd := exec.Command("/usr/bin/python2", command, "-b", binFilePath, "-o", output)
+	cmd := exec.Command("/usr/bin/python2", command, binFilePath, "-o", output)
 	err := cmd.Run()
 	if err != nil {
 		log.Println("error->", err)
