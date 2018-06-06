@@ -71,15 +71,13 @@ func handleBin(command, inputDir, outputDir string, pool *grpool.Pool) {
 				pool)
 		} else {
 			filePath := inputDir + string(os.PathSeparator) + file.Name()
-			outputResultPath := outputDir + string(os.PathSeparator) + file.Name()
-
 			// 指定保存目录不存在，则创建
 			if !IsDir(outputDir) {
 				os.MkdirAll(outputDir, 0775)
 			}
 
 			pool.Add(1)
-			go Task(pool, config.Interpreter, command, filePath, outputResultPath)
+			go Task(pool, config.Interpreter, command, filePath, outputDir)
 		}
 	}
 }
