@@ -165,6 +165,9 @@
 | 804   | [唯一摩尔斯密码词](algorithm/leetcode/804) | 简单  |
 | 811   | [子域名访问计数](algorithm/leetcode/811) | 简单  |
 | 812   | [最大三角形面积](algorithm/leetcode/812) | 简单  |
+| 821   | [字符的最短距离](algorithm/leetcode/821) | 简单  |
+| 829   | [连续整数求和](algorithm/leetcode/829) | 中等  |
+| 830   | [较大分组的位置](algorithm/leetcode/830) | 简单  |
 
 
 ### 剑指offer(第二版)
