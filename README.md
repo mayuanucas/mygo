@@ -169,6 +169,7 @@
 | 824   | [山羊拉丁文](algorithm/leetcode/824) | 简单  |
 | 829   | [连续整数求和](algorithm/leetcode/829) | 中等  |
 | 830   | [较大分组的位置](algorithm/leetcode/830) | 简单  |
+| 832   | [翻转图像](algorithm/leetcode/832) | 简单  |
 
 
 ### 剑指offer(第二版)
