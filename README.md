@@ -171,6 +171,7 @@
 | 830   | [较大分组的位置](algorithm/leetcode/830) | 简单  |
 | 832   | [翻转图像](algorithm/leetcode/832) | 简单  |
 | 836   | [矩形重叠](algorithm/leetcode/836) | 简单  |
+| 844   | [比较含退格的字符串](algorithm/leetcode/844) | 简单  |
 
 
 ### 剑指offer(第二版)
